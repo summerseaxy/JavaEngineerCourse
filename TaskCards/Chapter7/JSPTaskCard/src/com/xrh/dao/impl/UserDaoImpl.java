@@ -11,7 +11,7 @@ import java.util.Arrays;
 public class UserDaoImpl implements UserDao {
     @Override
     public boolean addUser(String username, String password) {
-        Connection con = DruidUtil.getConnection();
+        // Connection con = DruidUtil.getConnection();// DruidUtil中封装了此方法，这里不再需要
         String sql = "insert users (username, password) values(?, ?)";
         ArrayList<Object> params = new ArrayList<>(Arrays.asList(username, password));
         int result = 0;
@@ -27,7 +27,7 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public boolean findUser(String username, String password) {
-        Connection con = DruidUtil.getConnection();
+        // Connection con = DruidUtil.getConnection();// DruidUtil中封装了此方法，这里不再需要
         String sql = "select * from users where username=? and password=?";
         ArrayList<Object> params = new ArrayList<>(Arrays.asList(username, password));
         try {
