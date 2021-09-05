@@ -12,7 +12,7 @@ import java.util.Arrays;
 public class ProductDaoImpl implements ProductDao {
     @Override
     public ArrayList<Product> selectList() {
-        Connection con = DruidUtil.getConnection();
+        // Connection con = DruidUtil.getConnection();// DruidUtil中封装了此方法，这里不再需要
         String sql = "select * from products";
         ResultSet temp = null;
         ArrayList<Product> result = new ArrayList<>();
@@ -35,7 +35,7 @@ public class ProductDaoImpl implements ProductDao {
 
     @Override
     public boolean addProduct(String productName, double price, String description) {
-        Connection con = DruidUtil.getConnection();
+        // Connection con = DruidUtil.getConnection();// DruidUtil中封装了此方法，这里不再需要
         String sql = "insert products (productName, price, description) values(?, ?, ?)";
         ArrayList<Object> params = new ArrayList<>(Arrays.asList(productName, price, description));
         int result = 0;
@@ -51,7 +51,7 @@ public class ProductDaoImpl implements ProductDao {
 
     @Override
     public boolean delProduct(int id) {
-        Connection con = DruidUtil.getConnection();
+        // Connection con = DruidUtil.getConnection();// DruidUtil中封装了此方法，这里不再需要
         String sql = "delete from products where id=?";
         ArrayList<Object> params = new ArrayList<>(Arrays.asList(id));
         int result = 0;
